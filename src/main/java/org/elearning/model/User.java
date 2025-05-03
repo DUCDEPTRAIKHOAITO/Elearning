@@ -59,5 +59,7 @@ public class User {
     public void onUpdate() {
         this.updatedTime = Instant.now();
     }
+
+    // test
 }
 
