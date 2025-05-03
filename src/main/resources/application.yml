@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root               # T�n ng??i d�ng MySQL
+    password: Minhduc1311.       # M?t kh?u c?a ng??i d�ng MySQL
+    url: jdbc:mysql://localhost:3306/elearning  # URL k?t n?i ??n c? s? d? li?u MySQL, thay 'elearning' b?ng t�n c? s? d? li?u c?a b?n
+    driver-class-name: com.mysql.cj.jdbc.Driver   # Driver MySQL
+  jpa:
+    show-sql: true    # Hi?n th? c�u l?nh SQL trong log ?? b?n c� th? ki?m tra
+    hibernate:
+      ddl-auto: update  # T?o l?i c? s? d? li?u m?i khi kh?i ??ng ?ng d?ng (n�n s? d?ng ch? trong giai ?o?n ph�t tri?n)
+    format_sql: true  # ??nh d?ng SQL ??p h?n ?? d? ??c trong log
+
