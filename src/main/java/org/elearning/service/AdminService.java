@@ -1,5 +1,6 @@
 package org.elearning.service;
 
+
 import org.elearning.dto.elearning.AdminDTO;
 import org.elearning.model.Admin;
 import org.elearning.respository.AdminRepository;
@@ -63,7 +64,7 @@ public class AdminService {
     // Chuyển đổi Admin thành AdminDTO
     private AdminDTO convertToDTO(Admin admin) {
         AdminDTO dto = new AdminDTO();
-        dto.setId(admin.getId());
+        dto.setId(admin.getId().toString());
         dto.setDepartmentName(admin.getDepartmentName());
         return dto;
     }

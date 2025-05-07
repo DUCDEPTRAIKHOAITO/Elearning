@@ -21,6 +21,18 @@ public class Assignment {
     @Column(nullable = false, length = 200)
     private String name;
 
+    // The date field is now used
     private Instant date;
+
     private String description;
+
+    // Getter for date
+    public Instant getDate() {
+        return date;
+    }
+
+    // Setter for date
+    public void setDate(Instant date) {
+        this.date = date;
+    }
 }

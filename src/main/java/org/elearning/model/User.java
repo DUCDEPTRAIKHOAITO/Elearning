@@ -1,6 +1,8 @@
 package org.elearning.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.elearning.enums.UserStatus;
 
 
@@ -9,6 +11,8 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "\"user\"")
+@Data
+@NoArgsConstructor
 public class User {
 
     @Id

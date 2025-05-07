@@ -5,9 +5,9 @@ import lombok.Data;
 
 import java.util.UUID;
 
-
 @Entity
 @Table(name = "role")
+@Data
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -16,5 +16,8 @@ public class Role {
     @Column(nullable = false)
     private String name;
 
-    // Các getter và setter
+    @Column(length = 500)
+    private String description; // nếu muốn lưu description
+
+    // Lombok @Data sẽ tự generate Getter/Setter cho cả id, name, description
 }

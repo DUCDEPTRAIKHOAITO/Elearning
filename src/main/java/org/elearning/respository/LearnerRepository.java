@@ -9,6 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface LearnerRepository extends JpaRepository<Learner, UUID> {
-    // Tìm Learner theo UserId
-    Optional<Learner> findByUserId(UUID userId);
+    Optional<Learner> findByUserId(UUID userId);  // Tìm kiếm Learner theo userId
 }

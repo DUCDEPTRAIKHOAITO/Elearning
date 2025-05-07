@@ -1,9 +1,10 @@
 package org.elearning.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.UUID;
-
+@Data
 @Entity
 @Table(name = "submission")
 public class Submission {
