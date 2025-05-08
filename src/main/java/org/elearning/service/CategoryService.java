@@ -1,69 +1,14 @@
 package org.elearning.service;
 
 import org.elearning.dto.elearning.CategoryDTO;
-import org.elearning.model.Category;
-import org.elearning.respository.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
-@Service
-public class CategoryService {
-
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    // Get all categories
-    public List<CategoryDTO> getAllCategories() {
-        List<Category> categories = categoryRepository.findAll();
-        return categories.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-    }
-
-    // Get category by ID
-    public CategoryDTO getCategoryById(UUID id) {
-        Optional<Category> category = categoryRepository.findById(id);
-        return category.map(this::convertToDTO).orElse(null);
-    }
-
-    // Create new category
-    public CategoryDTO createCategory(CategoryDTO categoryDTO) {
-        Category category = new Category();
-        category.setCategoryName(categoryDTO.getCategoryName());
-        category.setDescription(categoryDTO.getDescription());
-        category = categoryRepository.save(category);
-        return convertToDTO(category);
-    }
-
-    // Update category
-    public CategoryDTO updateCategory(UUID id, CategoryDTO categoryDTO) {
-        Optional<Category> existingCategory = categoryRepository.findById(id);
-        if (existingCategory.isPresent()) {
-            Category category = existingCategory.get();
-            category.setCategoryName(categoryDTO.getCategoryName());
-            category.setDescription(categoryDTO.getDescription());
-            category = categoryRepository.save(category);
-            return convertToDTO(category);
-        }
-        return null;
-    }
-
-    // Delete category
-    public void deleteCategory(UUID id) {
-        categoryRepository.deleteById(id);
-    }
-
-    // Convert Category to CategoryDTO
-    private CategoryDTO convertToDTO(Category category) {
-        CategoryDTO dto = new CategoryDTO();
-        dto.setId(category.getId().toString());
-        dto.setCategoryName(category.getCategoryName());
-        dto.setDescription(category.getDescription());
-        return dto;
-    }
+public interface CategoryService {
+    List<CategoryDTO> getAllCategories();
+    CategoryDTO getCategoryById(UUID id);
+    CategoryDTO createCategory(CategoryDTO categoryDTO);
+    CategoryDTO updateCategory(UUID id, CategoryDTO categoryDTO);
+    void deleteCategory(UUID id);
 }
